@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+<!--<form action="">
+	<input type="text" id="num1"><br>
+	<input type="text" id="num2"><br>
+	<input type="button" value="sumar" onclick="alert(suma(10,20));">
+</form>
+
+<script>
+	
+	var suma=function (num1, num2) {
+		var num1=parseFloat(document.getElementById("num1").value);
+		var num2=parseFloat(document.getElementById("num2").value);
+
+		var result=num1+num2;
+		return result;
+	}
+</script>-->
+
+<!--<script>
+var variableGlobal ="Esta global";
+
+var mifuncion=function(){
+	variableGlobal="Esta local";
+	alert(variableGlobal);
+}
+
+mifuncion();
+</script>-->
+
+
+<h1 id="titulo">Titulo del sitio web</h1>
+<div id="subtitulo"></div>
+
+<p>1.- Lorem ipsum <b>dolor</b> sit amet, consectetur adipisicing elit. At consequatur dolorum quaerat deserunt, ea deleniti molestias magnam officia facere saepe pariatur id fugiat vero mollitia odio impedit, ut. Earum, temporibus.</p>
+
+<p id="segundo">2.- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque asperiores, ut odit laborum fugiat quibusdam nemo. Eius doloribus, eos quas, voluptatem quam praesentium eveniet fuga incidunt voluptates fugiat mollitia labore.</p>
+
+<p>3.- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia vero quidem quaerat fugit tenetur, saepe, enim consectetur labore? Facilis ab debitis inventore aut quaerat maiores harum, deleniti dicta nobis iure!</p>
+
+<script>
+	/*var elementosP=document.getElementsByTagName("p");
+	var segundoParrafo=document.getElementById("segundo");*/
+
+	//1.- Crear el elemento
+	var elemento = document.createElement("h2");
+	//2.- Crear un nodo de texto (se refiere al contenido)
+	var contenido=document.createTextNode("Este es nuestro titular");
+	//3.- Añadir el nodo de texto al elemento
+		//Juntamos el contenido del nodo en el elemento h2
+		//con appenChild
+	elemento.appendChild(contenido);
+	//4.- Agregar atributos al elemento
+	elemento.setAttribute("align","center");
+	//5.- Agregar el elemento al documento
+	document.getElementById("subtitulo").appendChild(elemento);
+
+</script>
+
+</body>
+</html>

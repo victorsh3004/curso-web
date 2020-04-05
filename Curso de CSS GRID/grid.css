@@ -1,0 +1,14 @@
+.contenedor{
+	display: grid;
+
+	/*Especificamos el tamaño de cada columna y la cantidad de columnas*/
+	/*grid-template-columns: 100px 100px 100px;*/
+	/*en css GRID tenemos una nueva unidad fr=una fracción*/
+	grid-template-columns: 200px 1fr 1fr;/* los fr fracción los espacios sobrantes */
+
+	/*Especificamos el tamaño de cada fila*/
+	grid-template-rows: 150px 300px;
+
+	/*Especiado entre cada uno de los elementos*/
+	grid-gap: 20px;
+}

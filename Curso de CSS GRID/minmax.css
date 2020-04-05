@@ -1,0 +1,10 @@
+.contenedor{
+	display: grid;
+	grid-gap: 20px;
+
+	/*La primera columna tendra un tamaño minimo de 300px y el maximo sera de 1fr*/
+	grid-template-columns: minmax(300px, 1fr) 1fr;
+
+	/*la medida auto regula el tamaño maximo segun el contenido que la caja*/
+	grid-template-rows: minmax(100px, auto) 400px;
+}

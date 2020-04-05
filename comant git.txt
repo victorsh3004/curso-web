@@ -1,0 +1,244 @@
+
+
+ls		:ver los directorios que tiene la ubicacion
+pwd		:ve donde se encuentra la ubicacion actualmente
+cd [nombre de la carpeta]		:	ingresa a una carperta
+git init	:crea la ubicacion de la carpeta .git (repositorio)
+git status	:visualiza con los archivos que esta trabajando y no se han echo el control de cambios
+git add	.	:agregar un archivo a la carpeta git (nuestra area de trabajo)
+
+git commit	:punto de partida 	[escape]
+
+:wq		:
+git log		:ver la diferencia de los cifrados de cada proyecto subido
+git checkout .	:reestablecer los cambios en un archivo			[git checkout -- (nombre del archivo)]
+git diff	:Observa los cambios realizados				[gi diff (nombre del archivo)]
+
+.gitignore	:Listado de archivos que se van a ignorar y aun no han sido registrados
+
+
+git commit -m "mesaje"	:forma corta de hacer un git commit
+
+git branch	:crear una version alternativa [git branch (nuevo nombre de la version alternativa)]	
+git checkout login	:cambia a la seccion alternativa colocando el nombre [git branch (nombre de la version alternativa)]	
+
+git branch login	:cambia a la seccion alternativa colocando el nombre [git branch (nombre de la version alternativa)]
+
+
+
+
+soft		: solo cambia el repositorioit
+
+crea principal.html			commit	se agrego principal.html
+cambia de nombre a princ.html		commit	se cambio de nombre a principal.html
+--se borra con rm				commit	se borro princ.html
+
+
+regresa hasta el hito cam...		commit	se cambio de nombre a principal.html
+--agrega palabra html			commit	Se agrego la palabra html
+
+
+regresa hasta el hito con mixed		commit	se cambio de nombre a principal.html
+//los cambios se mantienen pero no se visualizan los commit despues de la referencia con mixed
+
+
+
+regresa hasta el hito con mixed		commit	se cambio de nombre a principal.html
+modificamos el princ.html		commit	se agrego body
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+
+
+
+
+git --version			:vemos la version del sofware git
+
+//indicamos a git quien eres para que se puedan hacer los cambios en esta maquina
+git config --global user.name "nombre"
+git config --global user.email "correo"
+//para cambiar el usuario solo reescribimos
+
+//obener los valores establecidos
+git config -- global -l
+
+
+//Agregamos a una carpeta llamada css dos documentos index.css y ondex.scss
+//filtrado para confirmar el cambio
+git add css/*.css		:no entra al stage el documentos de SAS .scss ya que todo lo que ingresa debe terminar en .css
+
+//queremos quitar del stage un documento 
+git reset 			:mas el nombre del archivo, completo como lo indica en el status 
+
+//quitar todo lo que termina en .css dentro de una carpeta
+git reset css/*.scss
+
+//otra forma de agregar todos los archivos aparte del punto
+git add .
+git add -A
+git add --all
+
+//para ver la descripcion de un comando utilizamos help
+git help [nombre del comando]		:
+
+//colocar un alias a los comandos
+git config --global alias.[nombre del alias] "[nombre del comando]"
+git config --global alias.l "log"
+
+//corregir nombre a un commit con [amend]
+ejemplo
+git commit -m "1er mensaje"
+git commit --amend -m "mensaje corregido"
+
+//cambiar nombre del archivo con git para tener un control de version del nombre utilizamos [MV]
+git mv [nombre del archivo a cambiar][nuevo nombre del archivo para designar]
+git mv principal.html princ.html
+// despues de ello tendremos que hacer un commit
+
+//queremos eliminar un documento pero que tenga un control utilizamos [RM]
+git rm princ.html
+//tendremos que hacer un commit despues de esto para que pase al repositorio
+
+//Volvemos un paso atras en el ultimo cambio con resert
+tipos de RESET:	-soft	:no se toca el index file ni el working tree
+		-mixed	:reseteamos el index file pero no modificamos el directorio de trabajo  ... igualará tu 'staging area' con el 'repositorio', y no afectará tu 'working directory'. Podrías "encapsular" commits con esa instrucción.Y la otra opción de 
+		-hard	:eliminamos el ultimo commit y reseteamos el index file y el directorio de trabajo 
+
+
+
+//ahora queremos ver el archivo que ha sido borrado, para ello podemos regresar un paso atras con [reset]
+git reset --soft [el codigo cifrado]
+git reset --soft 8d5fdae8f4ds25fd4a8e52df254sdfesdf529
+//sin envargo cuando indicamos soft solo se ubica en ese lugar y no esta recupernado los elementos
+
+
+//si queremos que el archivo se recupere utilizamos [hard]
+git reset --hard [hito cifrado]
+git resert -hard 68daf6df8dsa6f56dsfaerfdf6865da8f6sdf8
+//ya no se encuentra el commit donde hicimos la eliminacion para ello se puede ver con [reflog]
+//cuando aplicamos git hard ya no hay forma de recuperar los cambios que hicimos ya que lo elimino tanto de area de trabajo como del commit
+
+//queremos ver el historial de commit[reflog]
+git reflog
+//se pueden visualizar todo incluso los resert hard
+
+//para ir hacia un punto guardado evitando los commit que se hicieron desde ese punto hacia adelante
+git reset --mixed [codigo cifrado 5a4sd6f54asd21f65as4df1a56sd4f6as5dfasd5f6as4df]
+
+
+//video 7
+//creamos un arhivo txt con el nombre [.gitignore] adentro colocamos los nombres de los archivos que no seran utiles para el proyecto
+
+
+//video8 ramas y uniones
+
+//creamos
+git branch [nombre de la nueva rama]
+
+//ver las ramas que tenemos []
+git log --oneline --decorate --all --graph
+
+//cambiar de ramas  [checkout]
+git checkout [nombre de la rama ]
+
+//queremos unir las dos ramas ya que las modificaciones en la nueva rama se va a necesitar y estan bien realizadas
+//vamos a la rama principal y desde ahi utilizamos el [merge]
+git merge [nombre de la rama que queremos unir]
+
+//ya que lo hemos unido la rama anterior ya no tendria sentido tenerla y la eliminamos con: -d[nombre de la rama a eliminar]
+git branch -d [nombre de la rama a eliminar]
+// Ahora solo tenemos la rama principal
+
+NOTA
+//para crear una rama y dirigirnos inmediatamente hacia esa rama
+git checkout -b [nombre de la nueva rama, si esta con espacios va entre comillas]
+
+
+//video 9 Merge y conflictos
+//cuando se modifican el mismo archivo en la rama master y otra rama al momento de  unir se crea un conflicto
+el cual se tiene que solucionar manualmente, cuando se ejecuta el merge desde master salndran las diferencias abriendo el archivo txt de documento modificado seguido tenemos que hacerle un commit
+
+//video 10 etiquetas
+//nos sirve para referenciar versiones
+
+//
+git tag [nombre de la etiqueta]
+git tag version1.0.0
+git tag -a [nombre de version] -m "[descripcion del detalle]" 		------- la -a sirve para agregar detalles
+
+//lo verrificamos con git log
+git log --oneline --decorate --all --graph
+
+//eliminamos una etiqueta colcoando -d
+git tag -d [nombre de la etiqueta a eliminar]
+
+//ver los detalles de un tag con [show]
+git show [nombre del tag que queremos ver los detalles]
+
+//para colocar un tag en un hito cualquiera, se copia y pega el codigo cifrado para ello utilizamos git log
+git log --oneline --decorate --all --graph
+git tag -a v0.0.1 [identificador]
+git tag -a v0.0.1 [65dad78ds]
+
+
+---------------- GIT HUD ----------------------------------
+
+//creamos nuestra cuenta
+//creamos un nuevo espacio en el github
+//copiamos la direccion que nos brinde
+//despues de hacer el ultimo commit agregamos al github con la direccion con [remote add origin]
+git remote add origin https://github.com/victorsh3004/repositorio-prueba.git
+git push -u origin master
+
+//colcoamos el usuario y clave de mi cuenta de git hub
+Username for 'https://github.com':[victorsh3004]
+Username for 'https://victor.sh.3004@gmail.com':[vivirlavida1.1]
+//se envia los cambios al repositorio
+
+
+//para descargar lo que hemos subido al git hub utilizamos clone pero copiamos el enlace de la direccion del repositorio
+git clone https://github.com/victorsh3004/repositorio-prueba.git
+
+//Despues de que el proyecto ya ha sido descargado, para subirlo al github nuevamente con los cambios solo se realiza el [git push]
+git push -u origin master
+Username for 'https://github.com':victorsh3004
+Username for 'https://victor.sh.3004@gmail.com':vivirlavida1.1
+
+
+
+//video 12 git pull
+//para poder descargar los ultimos cambios que haya podido sirgir en nuestro repositorio
+//se pueden utilizar 2 comandos :git pull	:mas practico y estos se unan directamente a la rama principal (master) 
+				:git fetch 	:trae los cambios y despues tendriamos que hacer un merge
+git pull
+
+//video 13 fork
+//Nos sirve para adquirir el proyecto de otra persona, buscamos el fork y hacemos un clone
+//trabajamos en el proyecto haciendo los cambios en git hasta el final con un commit, despues realizamos un push
+
+
+//videos 14 pull request
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

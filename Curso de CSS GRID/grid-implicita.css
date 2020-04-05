@@ -1,0 +1,34 @@
+.contenedor{
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 200px 1fr 200px;
+	grid-template-rows: 200px 100px 200px;
+
+	/* damos propiedad a la grid implicita*/
+	/*para filas*/
+	grid-auto-columns: 100px; 
+	/*tamaño para lo implicito*/
+	grid-auto-rows: 100px;
+
+
+	/*Los elementos extra se colocaran debajo o al costado*/
+	/* Vertical:row - horizontal: column	*/
+	/*grid-auto-flow: row;*/
+
+	grid-auto-flow: dense;
+	/* row - dense - (column dense) - (row dense)*/
+}
+
+.contenedor .span2{
+	grid-column: span 2;
+	/*grid-row: span 2;*/
+	background: #ff8000;
+}
+
+.contenedor .span3{
+	/*grid-row: span 2;*/
+	grid-column: span 3;
+	background: #575757;
+}
+
+/*Los espacios en blanco se reelena con las celdas que sobran de abajo con (dense)*/

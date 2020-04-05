@@ -1,0 +1,31 @@
+.contenedor{
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 200px);
+
+	/*abarca el especio que necesite segun el texto horizontal */
+	justify-items: center;
+	/*	start:   	alinea a la izquierda
+		auto: 		abarca todo
+		stretch: 	abarca todo le espacio disponible
+		center:  	centra
+		end:     	posiciona a la derecha
+	*/
+	
+	/*Lo mismo de manera vertical de la caja*/
+	align-items: center;
+
+
+}
+
+.contenedor .item{
+	background: #ff8000;
+	/*NO UTILIZAR
+	width: 100%;
+	*/
+
+	/*utilizar (justify-self)(align-self)*/
+	justify-self: stretch;
+	align-self: stretch;
+}

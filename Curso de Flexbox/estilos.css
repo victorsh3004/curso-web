@@ -1,0 +1,104 @@
+body {
+	background: #E9E9E9;
+}
+
+.contenedor {
+	width: 400px;
+	height: 150px;
+	background: #fff;
+	padding: 10px;
+	border: 10px solid #2C3E50;
+	margin: 20px;
+
+	/*Flexbox*/
+	display: -webkit-flex;
+	display: -ms-flexbox;
+
+	display: flex; /* (inline-flex) - flex*/
+	
+
+/*
+	*/
+	flex-wrap: no-wrap;
+	/* wrap - (no-wrap) - (wrap-reverse)*/
+	/*	1)pasa a la siguiente fila la caja en caso ya no quepe en la fila q esta
+		2) todas las cajas en una fila, no respeta el tamaño de ancho de la caja
+		3)  alreves de wrap*/
+
+	/*atajo de (flex-direction) (flex-wrap)*/
+	/*flex-flow: row wrap;
+*/
+	flex-direction: row;
+	/*row - column - (row-reverse) - (column-reverse)*/
+
+	justify-content: center;
+	/*	(flex-start) - (flex-end) - center - (space-around) - (space-between)
+		(por defecto)*/	
+
+	
+
+	align-items: center;
+	/*(flex-start) - (flex-end) - center - stretch - baseline*/
+
+	/**/
+	/*align-content: center;*/
+	/* (flex-start) - (flex-end) - center - stretch - (space-between) - (space-around)*/
+	/*Es lo mismo que align-items, pero lo hace con todo el grupo, se utiliza cuando se tiene varias filas*/
+}
+
+.elemento {
+	/*Todos los elementos tomaran el tamaño necesario para abarcar el 100%*/
+	flex-grow: 1;
+	/*Valor de encojimiento*/
+	flex-shrink: 1;
+
+	/*Atajo*/
+	/*flex:1*/
+
+	/*-------------------------------*/
+	color: #fff;
+	margin: 5px;
+
+	/*width: 50px;*/ /*Reemplazamos el width con (flex-basis) ya que este es dinamico*/
+	width: 350px; /*(flex-basis) es dinamico*/	
+
+	height: 50px;
+	background: #E67E22;
+	text-align: center;	
+
+	order: 2;
+}
+
+
+.elemento1{
+	order: 3;
+}
+
+.elemento2 {
+/*
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 350px;
+
+	/*Atajo*/
+	/* flex:1 1 350px;
+*/
+
+	/*Ordenamos los elementos de derecha a izquierda*/
+	order: 4;
+
+}
+
+.elemento3{
+	order: 1;
+
+	/*Ordenamiento vertical*/
+	align-self: flex-start;
+	/* (flex-start) - (flex-end) - center - stretch - baseline*/
+}
+
+.elemento4 {
+	order: 2;
+}
+
+
